@@ -15,6 +15,7 @@
         (libreR ?r - reserva)
     )
 
+
     (:action asignar_reserva
         :parameters(?h - habitacion ?r - reserva)
         :precondition (and (libreH ?h) (libreR ?r)
