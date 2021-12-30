@@ -6,8 +6,8 @@
 
     (:init
 
-        (= (capacidadH H1) 4)
-        (= (capacidadH H2) 3)
+        (= (capacidadH H1) 1)
+        (= (capacidadH H2) 1)
         (= (capacidadH H3) 4)
 
         (= (capacidadR R1) 2)
@@ -26,8 +26,11 @@
         (libreR R1)
         (libreR R2)
         (libreR R3)
+
+        (= (num_reservas_asignadas) 0)
     )
 
     (:goal (forall (?r - reserva) (not (libreR ?r))))
-    
+
+    (:metric maximize (num_reservas_asignadas))
 )
