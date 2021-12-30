@@ -8,12 +8,12 @@
     (:init
 
         (= (capacidadH H1) 4)
-        (= (capacidadH H2) 4)
+        (= (capacidadH H2) 3)
         (= (capacidadH H3) 4)
 
-        (= (capacidadR R1) 1)
-        (= (capacidadR R2) 1)
-        (= (capacidadR R3) 1)
+        (= (capacidadR R1) 2)
+        (= (capacidadR R2) 4)
+        (= (capacidadR R3) 3)
 
         
         (= (diaI R1) 2)
@@ -23,7 +23,7 @@
         (= (diaF R2) 30)
 
         (= (diaI R3) 11)
-        (= (diaF R3) 12)
+        (= (diaF R3) 19)
 
         (libreR R1)
         (libreR R2)
