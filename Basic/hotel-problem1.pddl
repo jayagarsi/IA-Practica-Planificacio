@@ -7,9 +7,9 @@
 
     (:init
 
-        (= (capacidadH H1) 1)
-        (= (capacidadH H2) 2)
-        (= (capacidadH H3) 3)
+        (= (capacidadH H1) 4)
+        (= (capacidadH H2) 4)
+        (= (capacidadH H3) 4)
 
         (= (capacidadR R1) 1)
         (= (capacidadR R2) 1)
