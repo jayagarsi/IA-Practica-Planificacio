@@ -1,6 +1,6 @@
 ;; Nivell Basic del planificador per repartir Habitacions d'Hotels 
 
-(define (domain hotel-basic)
+(define (domain hotel)
     (:requirements :fluents :typing :adl)
     (:types habitacion reserva - object)
 
