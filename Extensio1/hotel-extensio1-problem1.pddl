@@ -1,4 +1,4 @@
-(define (problem 3habitaciones3reservas)
+(define (problem extensio1-hotel1)
    (:domain hotel)
    (:objects H1 H2 H3 - habitacion
              R1 R2 R3 - reserva
@@ -6,8 +6,8 @@
 
     (:init
 
-        (= (capacidadH H1) 1)
-        (= (capacidadH H2) 1)
+        (= (capacidadH H1) 4)
+        (= (capacidadH H2) 4)
         (= (capacidadH H3) 4)
 
         (= (capacidadR R1) 2)
@@ -21,7 +21,7 @@
         (= (diaF R2) 30)
 
         (= (diaI R3) 11)
-        (= (diaF R3) 19)
+        (= (diaF R3) 17)
 
         (libreR R1)
         (libreR R2)
@@ -30,7 +30,7 @@
         (= (num_reservas_asignadas) 0)
     )
 
-    (:goal (forall (?r - reserva) (not (libreR ?r))))
+    (:goal (exists (?r2 - reserva) (not(libreR ?r2))))
 
     (:metric maximize (num_reservas_asignadas))
-)
+),

@@ -1,4 +1,4 @@
-;; Nivell Basic del planificador per repartir Habitacions d'Hotels 
+;; Extensio 1 del planificador per repartir Habitacions d'Hotels 
 
 (define (domain hotel)
     (:requirements :fluents :typing :adl)
@@ -23,7 +23,6 @@
         :precondition (and  (libreR ?r)
                             (<= (capacidadR ?r) (capacidadH ?h))
                             ;(not (ocupada ?h diaI ?r diaF ?r))
-
                             (forall (?r2 - reserva)
                                     (or     (libreR ?r2)                        ; si la reserva r2 no s'ha assignat encara, podem assignar r
                                             (not (asignada ?r2 ?h))             ; si la reserva r2 no esta assignada a l'habitacio h, podem assignar r a h

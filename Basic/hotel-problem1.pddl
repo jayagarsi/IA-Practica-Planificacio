@@ -1,4 +1,4 @@
-(define (problem 3habitaciones3reservas)
+(define (problem basic-hotel1)
    (:domain hotel)
    (:objects H1 H2 H3 - habitacion
              R1 R2 R3 - reserva
