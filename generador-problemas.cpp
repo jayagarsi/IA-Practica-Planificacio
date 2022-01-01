@@ -74,14 +74,14 @@ int main(int argc, char* argv[]) {
 
     for (int i = 0; i < h; ++i) {
         int c = capacidad(generator);
-        output_file << "        (= (capacidad " << habitaciones[i] << ") " << c << ")" << endl;
+        output_file << "        (= (capacidadH " << habitaciones[i] << ") " << c << ")" << endl;
     }
 
     output_file << endl;
 
     for (int i = 0; i < r; ++i) {
         int c = capacidad(generator);
-        output_file << "        (= (capacidad " << reservas[i] << ") " << c << ")" << endl;
+        output_file << "        (= (capacidadR " << reservas[i] << ") " << c << ")" << endl;
     }
 
     output_file << endl;
