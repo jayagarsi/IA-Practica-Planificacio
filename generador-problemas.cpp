@@ -69,19 +69,16 @@ int main(int argc, char* argv[]) {
 
     std::default_random_engine generator;
 
+    std::uniform_int_distribution<int> orientacion(0, 3);
     std::uniform_int_distribution<int> capacidad(1, 4);
     std::uniform_int_distribution<int> dias(1, 30);
 
     for (int i = 0; i < h; ++i) {
         int c = capacidad(generator);
+        int o = orientacion(generator);
         output_file << "        (= (capacidadH " << habitaciones[i] << ") " << c << ")" << endl;
-    }
-
-    output_file << endl;
-
-    for (int i = 0; i < r; ++i) {
-        int c = capacidad(generator);
-        output_file << "        (= (capacidadR " << reservas[i] << ") " << c << ")" << endl;
+        output_file << "        (= (orientacionH " << habitaciones[i] << ") " << o << ")" << endl;
+        output_file << endl;
     }
 
     output_file << endl;
@@ -90,8 +87,12 @@ int main(int argc, char* argv[]) {
         int diaI = dias(generator);
         std::uniform_int_distribution<int> diaFinal(diaI, 30);
         int diaF = diaFinal(generator);
+        int c = capacidad(generator);
+        int o = orientacion(generator);
         output_file << "        (=(diaI " << reservas[i] << ") " << diaI << ")" << endl;
         output_file << "        (=(diaF " << reservas[i] << ") " << diaF << ")" << endl;
+        output_file << "        (= (capacidadR " << reservas[i] << ") " << c << ")" << endl;
+        output_file << "        (= (orientacionR " << reservas[i] << ") " << o << ")" << endl;
         output_file << endl;
     }
 
@@ -101,22 +102,27 @@ int main(int argc, char* argv[]) {
         output_file << "        (libreR " << reservas[i] << ")" << endl;
     }
 
+    if (p == "1" or p == "2") {
+        output_file << "        (= (coste) 0)" << endl;
+        output_file << endl;
+    }
+
     output_file << "    )" << endl;
     output_file << endl;
 
-    if (p == "1") {
-        output_file << "        (= (reservas_eliminadas) 0)" << endl;
-        output_file << endl;
-    }
+
 
     // APARTAT DE GOAL
 
     output_file << "	(:goal (forall (?r - reserva) (not (libreR ?r))))" << endl;
-    output_file << ")" << endl << endl;
 
-    if (p == "1") {
-        output_file << "        (:metric minimize (reservas_eliminadas))" << endl;
+    if (p == "1" or p == "2") {
+        output_file << "	(:metric minimize (coste))" << endl;
         output_file << endl;
     }
+
+    output_file << ")" << endl << endl;
+
+
 
 }
