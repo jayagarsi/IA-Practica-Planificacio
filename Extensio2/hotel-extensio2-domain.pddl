@@ -1,4 +1,4 @@
-;; Extensio 1 del planificador per repartir Habitacions d'Hotels 
+;; Extensio 2 del planificador per repartir Habitacions d'Hotels 
 
 (define (domain hotel)
     (:requirements :fluents :typing :adl)
