@@ -6,5 +6,5 @@ generador-problemas: generador-problemas.cpp
 clean: 
 	rm -rf *.o generador-problemas
 
-erase_file: 
-	rm -rf random-problem.pddl
+erase_files: 
+	rm -rf random-problem-*.pddl

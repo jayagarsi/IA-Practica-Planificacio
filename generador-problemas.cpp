@@ -18,26 +18,35 @@ int main(int argc, char* argv[]) {
     if (argc != 7) usage();
 
     ofstream output_file;
-    output_file.open("random-problem.pddl");
 
     string p = argv[2];
     int h = atoi(argv[4]);
     int r = atoi(argv[6]);
 
-    if (p == "basic") 
+    if (p == "basic") {
+        output_file.open("random-problem-basic.pddl");
         output_file << "(define (problem random-basic)" << endl << "   (:domain hotel)" << endl;
+    }
 
-    else if (p == "1")
+    else if (p == "1") {
+        output_file.open("random-problem-extensio1.pddl");
         output_file << "(define (problem random-extensio1)" << endl << "   (:domain hotel)" << endl;
+    }
 
-    else if (p == "2")
+    else if (p == "2") {
+        output_file.open("random-problem-extensio2.pddl");
         output_file << "(define (problem random-extensio2)" << endl << "   (:domain hotel)" << endl;
+    }
 
-    else if (p == "3") 
+    else if (p == "3") {
+        output_file.open("random-problem-extensio3.pddl");
         output_file << "(define (problem random-extensio3)" << endl << "   (:domain hotel)" << endl;
+    }
     
-    else if (p == "4")
-        output_file << "(define (problem random-extensio4)" << endl << "   (:domain hotel)" << endl;    
+    else if (p == "4") {
+        output_file.open("random-problem-extensio4.pddl");
+        output_file << "(define (problem random-extensio4)" << endl << "   (:domain hotel)" << endl;   
+    }
 
     else usage();
 
@@ -77,7 +86,7 @@ int main(int argc, char* argv[]) {
         int c = capacidad(generator);
         int o = orientacion(generator);
         output_file << "        (= (capacidadH " << habitaciones[i] << ") " << c << ")" << endl;
-        output_file << "        (= (orientacionH " << habitaciones[i] << ") " << o << ")" << endl;
+        if (p == "2") output_file << "        (= (orientacionH " << habitaciones[i] << ") " << o << ")" << endl;
         output_file << endl;
     }
 
@@ -89,10 +98,10 @@ int main(int argc, char* argv[]) {
         int diaF = diaFinal(generator);
         int c = capacidad(generator);
         int o = orientacion(generator);
-        output_file << "        (=(diaI " << reservas[i] << ") " << diaI << ")" << endl;
-        output_file << "        (=(diaF " << reservas[i] << ") " << diaF << ")" << endl;
+        output_file << "        (= (diaI " << reservas[i] << ") " << diaI << ")" << endl;
+        output_file << "        (= (diaF " << reservas[i] << ") " << diaF << ")" << endl;
         output_file << "        (= (capacidadR " << reservas[i] << ") " << c << ")" << endl;
-        output_file << "        (= (orientacionR " << reservas[i] << ") " << o << ")" << endl;
+        if (p == "2") output_file << "        (= (orientacionR " << reservas[i] << ") " << o << ")" << endl;
         output_file << endl;
     }
 
@@ -102,22 +111,20 @@ int main(int argc, char* argv[]) {
         output_file << "        (libreR " << reservas[i] << ")" << endl;
     }
 
-    if (p == "1" or p == "2") {
-        output_file << "        (= (coste) 0)" << endl;
+    if (p != "basic") {
+        output_file << "        (= (penalizacion) 0)" << endl;
         output_file << endl;
     }
 
     output_file << "    )" << endl;
     output_file << endl;
 
-
-
     // APARTAT DE GOAL
 
     output_file << "	(:goal (forall (?r - reserva) (not (libreR ?r))))" << endl;
 
-    if (p == "1" or p == "2") {
-        output_file << "	(:metric minimize (coste))" << endl;
+    if (p != "basic") {
+        output_file << "	(:metric minimize (penalizacion))" << endl;
         output_file << endl;
     }
 
