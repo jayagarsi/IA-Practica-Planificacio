@@ -104,9 +104,19 @@ int main(int argc, char* argv[]) {
     output_file << "    )" << endl;
     output_file << endl;
 
+    if (p == "1") {
+        output_file << "        (= (reservas_eliminadas) 0)" << endl;
+        output_file << endl;
+    }
+
     // APARTAT DE GOAL
 
     output_file << "	(:goal (forall (?r - reserva) (not (libreR ?r))))" << endl;
-    output_file << ")" << endl;
+    output_file << ")" << endl << endl;
+
+    if (p == "1") {
+        output_file << "        (:metric minimize (reservas_eliminadas))" << endl;
+        output_file << endl;
+    }
 
 }

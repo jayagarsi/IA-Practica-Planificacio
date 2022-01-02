@@ -14,14 +14,12 @@
     (:predicates 
         (libreR ?r - reserva)
         (asignada ?r - reserva ?h - habitacion)
-        ;(ocupada ?h - habitacion ?ir - diaI ?fr - diaF)
     )
 
     (:action asignar_reserva
         :parameters(?h - habitacion ?r - reserva)
         :precondition (and  (libreR ?r)
                             (<= (capacidadR ?r) (capacidadH ?h))
-                            ;(not (ocupada ?h diaI ?r diaF ?r))
 
                             (forall (?r2 - reserva)
                                     (or     (libreR ?r2)                        ; si la reserva r2 no s'ha assignat encara, podem assignar r
@@ -40,7 +38,6 @@
 
         :effect (and (not (libreR ?r))
                      (asignada ?r ?h)
-                     ;(ocupada ?h diaI ?r diaF ?r)
                 )
     )
 )

@@ -9,20 +9,18 @@
         (capacidadR ?cr - reserva)
         (diaI ?ir - reserva)
         (diaF ?fr - reserva)
-        (num_reservas_asignadas)
+        (reservas_eliminadas)
     )
 
     (:predicates 
         (libreR ?r - reserva)
         (asignada ?r - reserva ?h - habitacion)
-        ;(ocupada ?h - habitacion ?ir - diaI ?fr - diaF)
     )
 
     (:action asignar_reserva
         :parameters(?h - habitacion ?r - reserva)
         :precondition (and  (libreR ?r)
                             (<= (capacidadR ?r) (capacidadH ?h))
-                            ;(not (ocupada ?h diaI ?r diaF ?r))
                             (forall (?r2 - reserva)
                                     (or     (libreR ?r2)                        ; si la reserva r2 no s'ha assignat encara, podem assignar r
                                             (not (asignada ?r2 ?h))             ; si la reserva r2 no esta assignada a l'habitacio h, podem assignar r a h
@@ -40,8 +38,14 @@
 
         :effect (and (not (libreR ?r))
                      (asignada ?r ?h)
-                     (increase (num_reservas_asignadas) 1)
-                     ;(ocupada ?h diaI ?r diaF ?r)
+                )
+    )
+
+    (:action descartar_reserva
+        :parameters (?r - reserva)
+        :precondition (libreR ?r)
+        :effect (and (not (libreR ?r))
+                     (increase (reservas_eliminadas) 1)
                 )
     )
 )
