@@ -9,7 +9,7 @@
         (capacidadR ?cr - reserva)
         (diaI ?ir - reserva)
         (diaF ?fr - reserva)
-        (reservas_eliminadas)
+        (coste)
     )
 
     (:predicates 
@@ -45,7 +45,7 @@
         :parameters (?r - reserva)
         :precondition (libreR ?r)
         :effect (and (not (libreR ?r))
-                     (increase (reservas_eliminadas) 1)
+                     (increase (coste) 1)
                 )
     )
 )
