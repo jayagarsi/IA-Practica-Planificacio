@@ -9,7 +9,7 @@
         (capacidadR ?cr - reserva)
         (diaI ?ir - reserva)
         (diaF ?fr - reserva)
-        (coste)
+        (penalizacion)
     )
 
     (:predicates 
@@ -45,7 +45,7 @@
         :parameters (?r - reserva)
         :precondition (libreR ?r)
         :effect (and (not (libreR ?r))
-                     (increase (coste) 1)
+                     (increase (penalizacion) 1)
                 )
     )
 )

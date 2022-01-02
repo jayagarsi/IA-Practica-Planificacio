@@ -32,10 +32,10 @@
         (libreR R3)
         (libreR R4)
 
-        (= (coste) 0)
+        (= (penalizacion) 0)
     )
 
     (:goal (forall (?r2 - reserva) (not(libreR ?r2))))
 
-    (:metric minimize (coste))
+    (:metric minimize (penalizacion))
 )

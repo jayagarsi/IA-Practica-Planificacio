@@ -9,7 +9,7 @@
         (capacidadR ?cr - reserva)
         (diaI ?ir - reserva)
         (diaF ?fr - reserva)
-        (coste)
+        (penalizacion)
     )
 
     (:predicates 
@@ -38,7 +38,7 @@
 
         :effect (and (not (libreR ?r))
                      (asignada ?r ?h)
-                     (increase (coste) (- (capacidadH ?h) (capacidadR ?r)))
+                     (increase (penalizacion) (- (capacidadH ?h) (capacidadR ?r)))      ; penalitzem per cada lloc lliure de la habitacio
                 )
     )
 
@@ -46,7 +46,7 @@
         :parameters (?r - reserva)
         :precondition (libreR ?r)
         :effect (and (not (libreR ?r))
-                     (increase (coste) 5)
-                )
+                     (increase (penalizacion) 5)                    ; si descartem reserva, posem la maxima penalitzacio, que sera 5, doncs
+                )                                                   ; la penalitzacio per habitacions poc plenes sera com a maxim de 4
     )
 )

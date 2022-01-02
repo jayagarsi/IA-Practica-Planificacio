@@ -11,7 +11,7 @@
         (diaF ?fr - reserva)
         (orientacionR ?or - reserva)
         (orientacionH ?oh - habitacion)
-        (coste)
+        (penalizacion)
     )
 
     (:predicates 
@@ -65,7 +65,7 @@
 
         :effect (and (not (libreR ?r))
                      (asignada ?r ?h)
-                     (increase (coste) 1)
+                     (increase (penalizacion) 1)
                 )
     )
 
@@ -73,7 +73,7 @@
         :parameters (?r - reserva)
         :precondition (libreR ?r)
         :effect (and (not (libreR ?r))
-                     (increase (coste) 2)
+                     (increase (penalizacion) 2)
                 )
     )
 )
