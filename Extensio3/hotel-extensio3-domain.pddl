@@ -46,7 +46,7 @@
         :parameters (?r - reserva)
         :precondition (libreR ?r)
         :effect (and (not (libreR ?r))
-                     (increase (penalizacion) 4)                    ; si descartem reserva, posem la maxima penalitzacio, que sera 5, doncs
-                )                                                   ; la penalitzacio per habitacions poc plenes sera com a maxim de 4
+                     (increase (penalizacion) 4)                    ; si descartem reserva, posem la maxima penalitzacio, que sera 4, doncs
+                )                                                   ; la penalitzacio per habitacions poc plenes sera com a maxim de 3 (4 de l'habitació i 1 de la reserva)
     )
 )
