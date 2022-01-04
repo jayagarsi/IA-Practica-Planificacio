@@ -9,6 +9,7 @@
         (capacidadR ?cr - reserva)
         (diaI ?ir - reserva)
         (diaF ?fr - reserva)
+        (numAssig ?na - habitacion)
         (penalizacion)
     )
 
@@ -39,6 +40,9 @@
 
         :effect (and (not (libreR ?r))
                      (asignada ?r ?h)
+                     (increase (numAssig ?h) 1)
+                     (increase (penalizacion) (- (capacidad ?h) (capacidad ?r)))    ;penalitzem per a cada lloc lliure de la habitació
+                     (decrease (penalizacion) (- (penalizacion) (numAssig ?h)))     ;restem a penalització el pes de que una habitació ja ha sigut assignada
                 )
     )
 
@@ -46,7 +50,7 @@
         :parameters (?r - reserva)
         :precondition (libreR ?r)
         :effect (and (not (libreR ?r))
-                     (increase (penalizacion) 1)
-                )
+                     (increase (penalizacion) 4)                                    ;si descartem reserva, posem la maxima penalitzacio, que sera 4, doncs
+                )                                                                   ; la penalització per habitacions poc plenes sera com a maxim de 3 (4 de l'habitació i 1 de la reserva)
     )
 )
