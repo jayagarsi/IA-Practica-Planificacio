@@ -94,8 +94,12 @@ int main(int argc, char* argv[]) {
 
     for (int i = 0; i < r; ++i) {
         int diaI = dias(generator);
-        std::uniform_int_distribution<int> diaFinal(diaI, 30);
-        int diaF = diaFinal(generator);
+        int diaF;
+        if (diaI != 29) {
+            std::uniform_int_distribution<int> diaFinal(diaI+1, 30);
+            diaF = diaFinal(generator);
+        }
+        else diaF = 30;
         int c = capacidad(generator);
         int o = orientacion(generator);
         output_file << "        (= (diaI " << reservas[i] << ") " << diaI << ")" << endl;
