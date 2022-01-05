@@ -41,7 +41,7 @@
         :effect (and (not (libreR ?r))
                      (asignada ?r ?h)
                      (increase (numAssig ?h) 1)
-                     (increase (penalizacion) (- (capacidad ?h) (capacidad ?r)))    ;penalitzem per a cada lloc lliure de la habitació
+                     (increase (penalizacion) (- (capacidadH ?h) (capacidadR ?r)))    ;penalitzem per a cada lloc lliure de la habitació
                      (decrease (penalizacion) (- (penalizacion) (numAssig ?h)))     ;restem a penalització el pes de que una habitació ja ha sigut assignada
                 )
     )
