@@ -16,7 +16,6 @@
         (= (numAssig H4) 0)
 
 
-
         (= (capacidadR R1) 2)
         (= (diaI R1) 10)
         (= (diaF R1) 14)

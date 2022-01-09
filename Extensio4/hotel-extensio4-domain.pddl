@@ -15,7 +15,6 @@
 
     (:predicates 
         (libreR ?r - reserva)
-        (abierta ?h - habitacion)
         (asignada ?r - reserva ?h - habitacion)
     )
 

@@ -87,6 +87,7 @@ int main(int argc, char* argv[]) {
         int o = orientacion(generator);
         output_file << "        (= (capacidadH " << habitaciones[i] << ") " << c << ")" << endl;
         if (p == "2") output_file << "        (= (orientacionH " << habitaciones[i] << ") " << o << ")" << endl;
+        if (p == "4") output_file << "        (= (numAssig " << habitaciones[i] << ") 0)" << endl;
         output_file << endl;
     }
 

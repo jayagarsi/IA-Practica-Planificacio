@@ -21,7 +21,7 @@
         (= (diaF R3) 23)
 
         (= (capacidadR R4) 4)
-        (= (diaI R4) 5)
+        (= (diaI R4) 24)
         (= (diaF R4) 29)
   
         (libreR R1)
