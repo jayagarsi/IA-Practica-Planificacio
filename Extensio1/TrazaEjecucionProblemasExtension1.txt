@@ -1,0 +1,64 @@
+--------------------- PROBLEMA 1-RANDOM ---------------------
+
+no optimization required. skipping criterion.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is EHC, if that fails then  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+Cueing down from goal distance:    3 into depth [1]
+                                   2            [1]
+                                   1            [1]
+                                   0
+
+ff: found legal plan as follows
+
+step    0: DESCARTAR_RESERVA R2
+        1: ASIGNAR_RESERVA H0 R1
+        2: DESCARTAR_RESERVA R0
+
+
+time spent:    0.00 seconds instantiating 3 easy, 12 hard action templates
+               0.00 seconds reachability analysis, yielding 11 facts and 15 actions
+               0.00 seconds creating final representation with 10 relevant facts, 1 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 4 states, to a max depth of 1
+               0.00 seconds total time
+
+
+--------------------- PROBLEMA 2 ---------------------
+
+no optimization required. skipping criterion.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is EHC, if that fails then  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+Cueing down from goal distance:    3 into depth [1]
+                                   2            [1]
+                                   1            [1]
+                                   0
+
+ff: found legal plan as follows
+
+step    0: ASIGNAR_RESERVA H1 R3
+        1: ASIGNAR_RESERVA H1 R2
+        2: DESCARTAR_RESERVA R1
+
+
+time spent:    0.00 seconds instantiating 3 easy, 16 hard action templates
+               0.00 seconds reachability analysis, yielding 12 facts and 19 actions
+               0.00 seconds creating final representation with 12 relevant facts, 1 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 4 states, to a max depth of 1
+               0.00 seconds total time
