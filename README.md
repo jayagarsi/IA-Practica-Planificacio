@@ -13,7 +13,7 @@ Si es vol borrar l'executable es pot fer make clean i si es vol borrar el fitxer
 10,5/12
 
 ## Autors
- * Pau Adell
  * Jaya García
+ * Pau Adell
  * Marc Falcón
 
